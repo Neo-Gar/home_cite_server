@@ -1,0 +1,19 @@
+CREATE TABLE food(
+    id SERIAL PRIMARY KEY,
+    header VARCHAR(50) NOT NULL,
+    description TEXT NOT NULL,
+    img_name VARCHAR(255) UNIQUE NOT NULL,
+    posting_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_edited BOOLEAN DEFAULT FALSE,
+    edit_time TIMESTAMP DEFAULT NULL
+);
+
+CREATE TABLE notes(
+    id SERIAL PRIMARY KEY,
+    header VARCHAR(50) NOT NULL,
+    text TEXT NOT NULL,
+    author VARCHAR(20) NOT NULL,
+    posting_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_edited BOOLEAN DEFAULT FALSE,
+    edit_time TIMESTAMP DEFAULT NULL
+)
