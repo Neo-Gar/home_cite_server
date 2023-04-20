@@ -1,7 +1,6 @@
 const express = require("express")
 const FoodRouter = require("./routes/food.routes")
 const NotesRouter = require('./routes/notes.routes')
-const {json} = require("express");
 
 const PORT = 3010
 

@@ -12,7 +12,7 @@ class NotesController {
                 values ($1, $2, $3)`, [header, text, author]
         )
         res.sendStatus(200)
-        console.log(date.toLocaleTimeString(),'CODE: 200')
+        console.log(date.toLocaleTimeString(),'CODE: 200\n')
     }
 
     async getItems(req, res){
@@ -20,7 +20,7 @@ class NotesController {
         console.log(date.toLocaleTimeString(),'New GET getItems')
         const items = await db.query(`SELECT * FROM notes`)
         res.json(items.rows)
-        console.log(date.toLocaleTimeString(),'CODE: 200')
+        console.log(date.toLocaleTimeString(),'CODE: 200\n')
     }
 
     async getOneItem(req, res){
@@ -30,11 +30,11 @@ class NotesController {
         const item = await db.query(`SELECT * FROM notes WHERE id = $1`, [id])
         if (item.rows.length !== 0) {
             res.json(item.rows[0])
-            console.log(date.toLocaleTimeString(),'CODE: 200')
+            console.log(date.toLocaleTimeString(),'CODE: 200\n')
         }
         else {
             res.sendStatus(403)
-            console.log(date.toLocaleTimeString(),'CODE: 403')
+            console.log(date.toLocaleTimeString(),'CODE: 403\n')
         }
     }
 
@@ -55,11 +55,11 @@ class NotesController {
             [id, header, text, author]
             )
             res.sendStatus(200)
-            console.log(date.toLocaleTimeString(),'CODE: 200')
+            console.log(date.toLocaleTimeString(),'CODE: 200\n')
         }
         else {
             res.sendStatus(403)
-            console.log(date.toLocaleTimeString(),'CODE: 403')
+            console.log(date.toLocaleTimeString(),'CODE: 403\n')
         }
 
     }
@@ -74,11 +74,11 @@ class NotesController {
         if (idCheck.rows.length !== 0) {
             const item = await db.query(`DELETE FROM notes WHERE id = $1`, [id])
             res.sendStatus(200)
-            console.log(date.toLocaleTimeString(),'CODE: 200')
+            console.log(date.toLocaleTimeString(),'CODE: 200\n')
         }
         else {
             res.sendStatus(403)
-            console.log(date.toLocaleTimeString(),'CODE: 403')
+            console.log(date.toLocaleTimeString(),'CODE: 403\n')
         }
     }
 }

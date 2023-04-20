@@ -12,15 +12,16 @@ class FoodController {
                 values ($1, $2, $3)`, [header, description, img_name]
         )
         res.sendStatus(200)
-        console.log(date.toLocaleTimeString(),'CODE: 200')
+        console.log(date.toLocaleTimeString(),'CODE: 200\n')
     }
 
     async getItems(req, res){
+        // console.log('New REQUEST from: ', req.ip)
         let date = new Date()
         console.log(date.toLocaleTimeString(),'New GET getItems')
         const items = await db.query(`SELECT * FROM food`)
         res.json(items.rows)
-        console.log(date.toLocaleTimeString(),'CODE: 200')
+        console.log(date.toLocaleTimeString(),'CODE: 200\n')
     }
 
     async getOneItem(req, res){
@@ -30,11 +31,11 @@ class FoodController {
         const item = await db.query(`SELECT * FROM food WHERE id = $1`, [id])
         if (item.rows.length !== 0) {
             res.json(item.rows[0])
-            console.log(date.toLocaleTimeString(),'CODE: 200')
+            console.log(date.toLocaleTimeString(),'CODE: 200\n')
         }
         else {
             res.sendStatus(403)
-            console.log(date.toLocaleTimeString(),'CODE: 403')
+            console.log(date.toLocaleTimeString(),'CODE: 403\n')
         }
     }
 
@@ -55,11 +56,11 @@ class FoodController {
             [id, header, description, img_name]
             )
             res.sendStatus(200)
-            console.log(date.toLocaleTimeString(),'CODE: 200')
+            console.log(date.toLocaleTimeString(),'CODE: 200\n')
         }
         else {
             res.sendStatus(403)
-            console.log(date.toLocaleTimeString(),'CODE: 403')
+            console.log(date.toLocaleTimeString(),'CODE: 403\n')
         }
 
     }
@@ -74,11 +75,11 @@ class FoodController {
         if (idCheck.rows.length !== 0) {
             const item = await db.query(`DELETE FROM food WHERE id = $1`, [id])
             res.sendStatus(200)
-            console.log(date.toLocaleTimeString(),'CODE: 200')
+            console.log(date.toLocaleTimeString(),'CODE: 200\n')
         }
         else {
             res.sendStatus(403)
-            console.log(date.toLocaleTimeString(),'CODE: 403')
+            console.log(date.toLocaleTimeString(),'CODE: 403\n')
         }
     }
 }
